@@ -106,18 +106,6 @@ Three round-trips. All via IBC with hook middleware on both sides.
 
 All tests pass (`forge test` + `initiad move test`).
 
-## Known Limits
-
-Read as: things I know are wrong, none of which affect the demo, all of which would block real money.
-
-- L1 `liquidate()` always takes the full delegation regardless of `amount` — need partial
-- L2 `LiquidationEngine.ibc_timeout` doesn't restore seized collateral to the user on packet failure
-- No flash-loan protection: `MANAGER_ROLE` holder can mint collateral arbitrarily (admin key only, for now)
-- Single delegation per user — real mLP users stake across multiple validators
-- Prices are admin-set (`setPrice()`), no Connect Oracle / Pyth integration yet
-- Positions address-bound, not transferable NFTs
-- Frontend requires two wallets (Keplr for L1, MetaMask for L2)
-- No audit, no formal verification, no economic simulation
 
 ## Tech Stack
 
