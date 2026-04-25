@@ -108,17 +108,6 @@ Initia's Enshrined Liquidity makes LP tokens validator-securing assets. Meridian
 
 We're also the first dApp to prove the bidirectional EVM-hook + Move-hook IBC pattern with a complete cross-VM application.
 
-## Known Limits
-
-Honest scope before mainnet:
-
-- Prices are admin-set (no Connect Oracle yet)
-- L1 `liquidate()` always full-amount (no partial)
-- No flash-loan protection on `MANAGER_ROLE`
-- Single delegation per user (no multi-validator)
-- Positions are address-bound (not transferable NFTs)
-- Frontend needs two wallets (Keplr for L1, MetaMask for L2)
-- No audit, no formal verification
 
 See `SUBMISSION.md` for the full breakdown.
 
