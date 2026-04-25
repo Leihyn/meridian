@@ -1,0 +1,41 @@
+# Foundry
+out/
+cache/
+broadcast/
+
+# Move
+move/build/
+
+# Node
+node_modules/
+dist/
+.env
+.env.local
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# OS
+.DS_Store
+
+# Keys
+*.pkey
+*.mnemonic
+
+# Initia
+.weave/
+.initia-local/
+
+# Local chain state (Level 2 + Level 3)
+scripts/level2/_home/
+scripts/level3/_state/
+scripts/level3/_logs/
+
+# Logs
+*.log
+
+# Frontend build
+.next/
+frontend/.next/
+frontend/tsconfig.tsbuildinfo

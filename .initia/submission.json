@@ -1,0 +1,59 @@
+{
+  "name": "Meridian",
+  "tagline": "Lend against staked LP that keeps earning yield",
+  "description": "Deposit LP on Initia L1, get an mLP receipt that bridges to a MiniEVM rollup as collateral, and borrow INIT against it while your underlying LP keeps staking and earning Enshrined Liquidity rewards.",
+  "track": "DeFi",
+  "team": [
+    {
+      "name": "leihyn",
+      "role": "Builder",
+      "github": "https://github.com/leihyn"
+    }
+  ],
+  "repository": "https://github.com/leihyn/meridian",
+  "demo_video": "https://meridian-video.vercel.app",
+  "chains": {
+    "l1": {
+      "chain_id": "initiation-2",
+      "type": "Initia (Move VM, Cosmos SDK)",
+      "rpc": "https://rpc.testnet.initia.xyz",
+      "module_address": "see scripts/level3/_state/l1_meridian_address after deploy"
+    },
+    "l2": {
+      "chain_id": "evm-1",
+      "type": "Meridian MiniEVM rollup",
+      "rpc": "https://rpc-evm-1.anvil.asia-southeast.initia.xyz",
+      "json_rpc": "https://jsonrpc-evm-1.anvil.asia-southeast.initia.xyz",
+      "deployed_addresses": "see scripts/level3/_state/l2_deployed.json after deploy"
+    }
+  },
+  "ibc": {
+    "channel_l1": "channel-3077",
+    "channel_l2": "channel-0",
+    "transfer_port": "transfer",
+    "hook_middleware": "ibchooks (default_allowed=true on evm-1)"
+  },
+  "components": {
+    "move_module": "move/sources/meridian.move",
+    "solidity_contracts": [
+      "contracts/src/IBCReceiver.sol",
+      "contracts/src/CollateralManager.sol",
+      "contracts/src/LendingPool.sol",
+      "contracts/src/InterestRateModel.sol",
+      "contracts/src/LiquidationEngine.sol",
+      "contracts/src/YieldOracle.sol"
+    ],
+    "frontend": "frontend/ (Next.js 16, viem, @initia/react-wallet-widget)"
+  },
+  "tests": {
+    "move": "8 tests passing (initiad move test)",
+    "foundry": "41 tests passing (forge test)",
+    "live_ibc": "Real packet round-trip proven via scripts/level2/08-test-deposit.sh"
+  },
+  "docs": [
+    "README.md",
+    "SUBMISSION.md",
+    "DEMO_SCRIPT.md",
+    "docs/OPERATIONS.md"
+  ]
+}
